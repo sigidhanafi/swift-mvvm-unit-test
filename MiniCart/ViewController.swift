@@ -22,6 +22,10 @@ class ViewController: UIViewController {
             self?.contentView.labelQuantity.text = "\(quantity)"
         }
         
+//        let showMessageAfterBuy: (String) -> Void = { [weak self] message in
+//            self?.contentView
+//        }
+        
         self.viewModel = ViewModel(quantity: 1, changeQuantityLabel: changeQuantityLabel)
         
         setupView()

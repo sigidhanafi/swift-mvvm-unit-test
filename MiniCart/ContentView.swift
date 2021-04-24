@@ -9,25 +9,33 @@ import Foundation
 import UIKit
 
 class ContentView: UIView {
-    internal let containerStackView: UIStackView = {
+    private let containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 50
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 20
         
         return stackView
     }()
     
-    private let spacerView: UIView = {
+    private let spacerTopView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         return view
     }()
     
-    internal let labelProductStackView: UIStackView = {
+    private let spacerBottomView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        return view
+    }()
+    
+    private let labelProductStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -35,7 +43,7 @@ class ContentView: UIView {
         return stackView
     }()
     
-    internal let labelProductName: UILabel = {
+    private let labelProductName: UILabel = {
         let label = UILabel()
         label.text = "iPhone 12 256 Black"
         label.font = UIFont.systemFont(ofSize: 24)
@@ -44,7 +52,7 @@ class ContentView: UIView {
         return label
     }()
     
-    internal let labelProductPrice: UILabel = {
+    private let labelProductPrice: UILabel = {
         let label = UILabel()
         label.text = "IDR 20.000.000"
         label.font = UIFont.systemFont(ofSize: 24)
@@ -53,7 +61,7 @@ class ContentView: UIView {
         return label
     }()
     
-    internal let quantityEditoStackView: UIStackView = {
+    private let quantityEditorStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -98,7 +106,7 @@ class ContentView: UIView {
         return button
     }()
     
-    internal let buttonStackView: UIStackView = {
+    private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -120,6 +128,25 @@ class ContentView: UIView {
         return button
     }()
     
+    private let messageStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        
+        return stackView
+    }()
+    
+    internal let labelMessage: UILabel = {
+        let label = UILabel()
+        label.text = "Press Buy button to process your shopping cart"
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -131,19 +158,24 @@ class ContentView: UIView {
     }
     
     private func setupView() {
-        containerStackView.addArrangedSubview(spacerView)
+        containerStackView.addArrangedSubview(spacerTopView)
         
         labelProductStackView.addArrangedSubview(labelProductName)
         labelProductStackView.addArrangedSubview(labelProductPrice)
         containerStackView.addArrangedSubview(labelProductStackView)
 
-        quantityEditoStackView.addArrangedSubview(buttonMinus)
-        quantityEditoStackView.addArrangedSubview(labelQuantity)
-        quantityEditoStackView.addArrangedSubview(buttonPlus)
-        containerStackView.addArrangedSubview(quantityEditoStackView)
+        quantityEditorStackView.addArrangedSubview(buttonMinus)
+        quantityEditorStackView.addArrangedSubview(labelQuantity)
+        quantityEditorStackView.addArrangedSubview(buttonPlus)
+        containerStackView.addArrangedSubview(quantityEditorStackView)
         
         buttonStackView.addArrangedSubview(buttonBuy)
         containerStackView.addArrangedSubview(buttonStackView)
+        
+        messageStackView.addArrangedSubview(labelMessage)
+        containerStackView.addArrangedSubview(messageStackView)
+        
+        containerStackView.addArrangedSubview(spacerBottomView)
         
         self.addSubview(containerStackView)
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
