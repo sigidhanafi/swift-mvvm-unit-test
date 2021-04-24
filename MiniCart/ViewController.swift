@@ -22,11 +22,23 @@ class ViewController: UIViewController {
             self?.contentView.labelQuantity.text = "\(quantity)"
         }
         
-//        let showMessageAfterBuy: (String) -> Void = { [weak self] message in
-//            self?.contentView
-//        }
+        let updateMessage: (String) -> Void = { [weak self] message in
+            self?.contentView.labelMessage.text = message
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self?.viewModel.resetView()
+            }
+        }
         
-        self.viewModel = ViewModel(quantity: 1, changeQuantityLabel: changeQuantityLabel)
+        let resetViewTrigger: (Int, String) -> Void = { [weak self] quantity, message in
+            self?.contentView.labelQuantity.text = "\(quantity)"
+            self?.contentView.labelMessage.text = message
+        }
+        
+        self.viewModel = ViewModel(quantity: 1,
+                                   changeQuantityLabel: changeQuantityLabel,
+                                   updateMessage: updateMessage,
+                                   resetView: resetViewTrigger)
         
         setupView()
     }
