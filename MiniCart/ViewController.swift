@@ -18,6 +18,31 @@ class ViewController: UIViewController {
         
         self.contentView = ContentView()
         
+        setupView()
+        
+        setupViewModel()
+    }
+    
+    func setupView() {
+        view.backgroundColor = .white
+        
+        view.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        
+        setupAction()
+    }
+    
+    private func setupAction() {
+        contentView.buttonBuy.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
+        contentView.buttonPlus.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        contentView.buttonMinus.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setupViewModel() {
         let changeQuantityLabel: (Int) -> Void = { [weak self] quantity in
             self?.contentView.labelQuantity.text = "\(quantity)"
         }
@@ -39,27 +64,6 @@ class ViewController: UIViewController {
                                    changeQuantityLabel: changeQuantityLabel,
                                    updateMessage: updateMessage,
                                    resetView: resetViewTrigger)
-        
-        setupView()
-    }
-    
-    func setupView() {
-        view.backgroundColor = .white
-        
-        view.addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        contentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        
-        setupAction()
-    }
-    
-    private func setupAction() {
-        contentView.buttonBuy.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
-        contentView.buttonPlus.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
-        contentView.buttonMinus.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
     }
     
     @objc private func plusButtonTapped() {
