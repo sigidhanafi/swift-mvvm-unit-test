@@ -140,7 +140,8 @@ class ContentView: UIView {
     internal let labelMessage: UILabel = {
         let label = UILabel()
         label.text = "Press Buy button to process your shopping cart"
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.black.withAlphaComponent(0.7)
         label.textAlignment = .center
         label.numberOfLines = 0
         
