@@ -45,6 +45,13 @@ class ViewController: UIViewController {
     private func setupViewModel() {
         self.viewModel = ViewModel()
         
+        self.viewModel.didLoadTrigger()
+        
+        self.viewModel.loadView = { [weak self] product in
+            self?.contentView.labelProductName.text = product.name
+            self?.contentView.labelProductPrice.text = product.price
+        }
+        
         self.viewModel.changeQuantityLabel = { [weak self] quantity in
             self?.contentView.labelQuantity.text = "\(quantity)"
         }

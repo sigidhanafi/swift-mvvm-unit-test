@@ -16,6 +16,8 @@
 		3EB71A292630DBCF00BFCD29 /* MiniCartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB71A282630DBCF00BFCD29 /* MiniCartTests.swift */; };
 		3EB71A392630E4AE00BFCD29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB71A382630E4AE00BFCD29 /* ContentView.swift */; };
 		3ED6B9FC263718F300D8A60E /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6B9EF2637184F00D8A60E /* ViewModelTests.swift */; };
+		3ED6BA0026371DEF00D8A60E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6B9FF26371DEF00D8A60E /* APIService.swift */; };
+		3ED6BA0426371E3700D8A60E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6BA0326371E3700D8A60E /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		3EB71A2A2630DBCF00BFCD29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EB71A382630E4AE00BFCD29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3ED6B9EF2637184F00D8A60E /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		3ED6B9FF26371DEF00D8A60E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3ED6BA0326371E3700D8A60E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 		3EB71A07262FD30B00BFCD29 /* MiniCart */ = {
 			isa = PBXGroup;
 			children = (
+				3ED6BA0826371E4600D8A60E /* Services */,
+				3ED6BA0726371E3B00D8A60E /* Model */,
 				3EB71A08262FD30B00BFCD29 /* AppDelegate.swift */,
 				3EB71A0A262FD30B00BFCD29 /* SceneDelegate.swift */,
 				3EB71A0C262FD30B00BFCD29 /* ViewController.swift */,
@@ -103,6 +109,22 @@
 				3EB71A2A2630DBCF00BFCD29 /* Info.plist */,
 			);
 			path = MiniCartTests;
+			sourceTree = "<group>";
+		};
+		3ED6BA0726371E3B00D8A60E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ED6BA0326371E3700D8A60E /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3ED6BA0826371E4600D8A60E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3ED6B9FF26371DEF00D8A60E /* APIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +231,8 @@
 				3EB71A09262FD30B00BFCD29 /* AppDelegate.swift in Sources */,
 				3EB71A202630D31000BFCD29 /* ViewModel.swift in Sources */,
 				3EB71A0B262FD30B00BFCD29 /* SceneDelegate.swift in Sources */,
+				3ED6BA0026371DEF00D8A60E /* APIService.swift in Sources */,
+				3ED6BA0426371E3700D8A60E /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

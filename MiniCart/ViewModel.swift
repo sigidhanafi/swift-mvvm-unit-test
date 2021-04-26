@@ -6,19 +6,26 @@
 //
 
 class ViewModel {
+    private let apiService: APIServiceProtocol
+    internal var didLoad: (() -> Void)?
+    internal var loadView: ((Product) -> Void)?
     internal var changeQuantityLabel: ((Int) -> Void)?
     internal var updateMessage: ((String) -> Void)?
     internal var resetViewTrigger: ((Int, String) -> Void)?
     
-    internal var quantity: Int = 1
-    internal var message: String = "Press Buy button to process your shopping cart"
+    private var isLoading: Bool = false
+    private var quantity: Int = 1
+    private var message: String = "Press Buy button to process your shopping cart"
     
-//    init() {
-//        self.quantity = quantity
-//        self.changeQuantityLabel = changeQuantityLabel
-//        self.updateMessage = updateMessage
-//        self.resetViewTrigger = resetView
-//    }
+    init(apiService: APIServiceProtocol = APIService()) {
+        self.apiService = apiService
+    }
+    
+    func didLoadTrigger() {
+        self.apiService.fetchProductData { data in
+            self.loadView?(data)
+        }
+    }
     
     func minusButtonTapped() {
         if quantity > 1 {

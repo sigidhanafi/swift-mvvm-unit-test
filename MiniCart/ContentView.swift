@@ -43,18 +43,18 @@ class ContentView: UIView {
         return stackView
     }()
     
-    private let labelProductName: UILabel = {
+    internal let labelProductName: UILabel = {
         let label = UILabel()
-        label.text = "iPhone 12 256 Black"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .center
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return label
     }()
     
-    private let labelProductPrice: UILabel = {
+    internal let labelProductPrice: UILabel = {
         let label = UILabel()
-        label.text = "IDR 20.000.000"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .center
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
