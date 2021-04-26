@@ -43,11 +43,13 @@ class ViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        let changeQuantityLabel: (Int) -> Void = { [weak self] quantity in
+        self.viewModel = ViewModel()
+        
+        self.viewModel.changeQuantityLabel = { [weak self] quantity in
             self?.contentView.labelQuantity.text = "\(quantity)"
         }
         
-        let updateMessage: (String) -> Void = { [weak self] message in
+        self.viewModel.updateMessage = { [weak self] message in
             self?.contentView.labelMessage.text = message
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -55,15 +57,10 @@ class ViewController: UIViewController {
             }
         }
         
-        let resetViewTrigger: (Int, String) -> Void = { [weak self] quantity, message in
+        self.viewModel.resetViewTrigger = { [weak self] quantity, message in
             self?.contentView.labelQuantity.text = "\(quantity)"
             self?.contentView.labelMessage.text = message
         }
-        
-        self.viewModel = ViewModel(quantity: 1,
-                                   changeQuantityLabel: changeQuantityLabel,
-                                   updateMessage: updateMessage,
-                                   resetView: resetViewTrigger)
     }
     
     @objc private func plusButtonTapped() {
