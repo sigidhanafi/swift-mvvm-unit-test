@@ -12,15 +12,27 @@ import XCTest
 class ViewModelTests: XCTestCase {
     
     var viewModel: ViewModel!
+    var mockAPIService: MockAPIService!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        viewModel = ViewModel()
+        mockAPIService = MockAPIService()
+        viewModel = ViewModel(apiService: mockAPIService)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    
+    func testDidLoadView() {
+        // given
+        let expected = mockAPIService.product
+        
+        // when
+        viewModel.didLoadTrigger()
+        
+        // then
+        XCTAssertEqual(viewModel.product, expected)
     }
     
     func testIncrement() {

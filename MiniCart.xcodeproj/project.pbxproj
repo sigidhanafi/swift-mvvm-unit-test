@@ -18,6 +18,7 @@
 		3ED6B9FC263718F300D8A60E /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6B9EF2637184F00D8A60E /* ViewModelTests.swift */; };
 		3ED6BA0026371DEF00D8A60E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6B9FF26371DEF00D8A60E /* APIService.swift */; };
 		3ED6BA0426371E3700D8A60E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6BA0326371E3700D8A60E /* Product.swift */; };
+		3ED6BA112637234400D8A60E /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6BA102637234400D8A60E /* MockAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		3ED6B9EF2637184F00D8A60E /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		3ED6B9FF26371DEF00D8A60E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		3ED6BA0326371E3700D8A60E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		3ED6BA102637234400D8A60E /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				3EB71A282630DBCF00BFCD29 /* MiniCartTests.swift */,
 				3ED6B9EF2637184F00D8A60E /* ViewModelTests.swift */,
+				3ED6BA102637234400D8A60E /* MockAPIService.swift */,
 				3EB71A2A2630DBCF00BFCD29 /* Info.plist */,
 			);
 			path = MiniCartTests;
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED6BA112637234400D8A60E /* MockAPIService.swift in Sources */,
 				3ED6B9FC263718F300D8A60E /* ViewModelTests.swift in Sources */,
 				3EB71A292630DBCF00BFCD29 /* MiniCartTests.swift in Sources */,
 			);

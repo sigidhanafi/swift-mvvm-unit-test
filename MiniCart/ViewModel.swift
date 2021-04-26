@@ -7,15 +7,22 @@
 
 class ViewModel {
     private let apiService: APIServiceProtocol
-    internal var didLoad: (() -> Void)?
+    
     internal var loadView: ((Product) -> Void)?
     internal var changeQuantityLabel: ((Int) -> Void)?
     internal var updateMessage: ((String) -> Void)?
     internal var resetViewTrigger: ((Int, String) -> Void)?
     
-    private var isLoading: Bool = false
-    private var quantity: Int = 1
-    private var message: String = "Press Buy button to process your shopping cart"
+    internal var isLoading: Bool = false
+    internal var product: Product? {
+        didSet {
+            if let product = product {
+                self.loadView?(product)
+            }
+        }
+    }
+    internal var quantity: Int = 1
+    internal var message: String = "Press Buy button to process your shopping cart"
     
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
@@ -23,7 +30,7 @@ class ViewModel {
     
     func didLoadTrigger() {
         self.apiService.fetchProductData { data in
-            self.loadView?(data)
+            self.product = data
         }
     }
     
