@@ -36,8 +36,7 @@ class ViewModelTests: XCTestCase {
     }
     
     func testIncrement() {
-        // given last quantity 1
-        viewModel.quantity = 1
+        // given last quantity 1, its because init vm with default qty is 1
         
         // when plus button tapped
         viewModel.plusButtonTapped()
